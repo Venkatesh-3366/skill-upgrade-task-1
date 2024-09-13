@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple eCommerce Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Online Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to Our Online Store!</h2>
+        <p>Find the best deals on the latest products.</p>
+        <button>Shop Now</button>
+    </section>
+
+    <section class="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="oneplus.jpeg" alt="Product 1">
+                <h3>oneplus</h3>
+                <p>40000 rs</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="shopping.jpeg" alt="Product 2">
+                <h3>nothing</h3>
+                <p>35000rs</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="iphone.jpeg" alt="Product 3">
+                <h3>iphone</h3>
+                <p>50000rs</p>
+                <a href="add to cart">
+                    <button>Add to Cart</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <script>
+        const cart = [];
+
+        const addToCartButtons = document.querySelectorAll('button');
+
+        addToCartButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const productName = document.querySelectorAll('.product-card h3')[index].innerText;
+                const productPrice = document.querySelectorAll('.product-card p')[index].innerText;
+                cart.push({
+                    name: productName,
+                    price: productPrice
+                });
+                alert(`${productName} added to cart!`);
+            });
+        });
+    </script>
+
+
+    <footer>
+        <p>&copy; 2024 Online Store. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
